@@ -3,15 +3,16 @@ using WebAPI.Utils;
 
 namespace WebAPI.UseCases
 {
-    public class GeneralCostUseCase
+    public class GeneralCostUseCase:IUseCase<GeneralCost>
     {
         public GeneralCostUseCase() { }
-
-        public GeneralCost Execute(GeneralCost objGeneralCost)
+        public Task<GeneralCost> Execute(GeneralCost objGeneralCost)
         {
-            var response = new BuilderGeneralCost().BuildEntity(objGeneralCost.CostTypeId, objGeneralCost?.ValueSpentDescription);
+            //var response = new BuilderGeneralCost().BuildEntity(objGeneralCost.CostTypeId, objGeneralCost?.ValueSpentDescription);
 
-            return response;
+            var response = objGeneralCost;
+
+            return Task.FromResult(response);
 
         }
     }

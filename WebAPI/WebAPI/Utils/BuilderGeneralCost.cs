@@ -13,12 +13,12 @@ namespace WebAPI.Utils
             DateTime horaAgora = 
                 DateTime.Now;
 
-            var generalId = random.Next();
+            var generalId = "";
             var costTypeDescription = new CostTypeDictionary().SetCostType(costType);
 
             return new GeneralCost();
         
-                }
+        }
 
         
     }
