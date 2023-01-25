@@ -1,0 +1,48 @@
+<div class="container">
+  <h3 class="d-flex justify-content-center">General Cost</h3>
+
+<!-- form -->
+<form [formGroup]="checkoutForm" (ngSubmit)="AddCost()">
+<div class="d-flex flex-row bd-highlight mb-3">
+  <div class="p-2 w-50 bd-highlight">
+    <div class="input-group mb-3">
+      <span class="input-group-text">Valor</span>
+      <input type="decimal" class="form-control" formControlName="valueSpentDescription">
+    </div>
+    <div class="input-group mb-3">
+      <select class="input-group mb-3" id="costTypeId"
+      formControlName="costTypeId"
+      [(ngModel)]="selectedCodeTypeDescription">
+        <option *ngFor="let ct of costTypeList" [ngValue]="ct.id"> {{ct.description}}</option>
+      </select>
+    </div>
+  </div>
+</div>
+<button type="submit" class="btn btn-primary">
+  Create
+</button>
+</form>
+
+
+<!--  -->
+
+  <div>
+    <h1>Tabela</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Valor</th>
+          <th>Tipo Gasto</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cost of costList">
+          <td>{{cost.valueSpentDescription}}</td>
+          <td>{{cost.costTypeDescription}}</td>
+          <td>{{cost.valueSpentDateTime}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
